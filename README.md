@@ -2,18 +2,20 @@
 # CS345 - Software Engineering at Ithaca College
 ## Exam 01 - Project Pitch, UML Diagrams, TDD Coding
 
-Name:
+Name: Arabella Fielder
 
 ## Section 1 - Pitch 
+- https://docs.google.com/document/d/1sRQGLWZ2w1u0j8NGrbq-1iHFt8DcrMA3g9h4jxB6MzI/edit?usp=sharing
 
 ## Section 2 - UML Diagrams
 
 Link to UML Diagram file for 4 diagrams: 
 (one file with multiple tabs)
-1. Use Case Diagram
-2. Class Diagram
-3. Sequence Diagram
-4. State Diagramm
+https://drive.google.com/file/d/1FpeFn3x0Hf46UgviB-6dI1UcGvVRbHeI/view?usp=sharing
+1. Use Case Diagram - Use Case Diagram tab
+2. Class Diagram - UML-Classes tab
+3. Sequence Diagram - 
+4. State Diagramm - 
 
 ## Section 3 - Code 
 1. Choice of use case, explanation, and necessary classes/methods to complete it
