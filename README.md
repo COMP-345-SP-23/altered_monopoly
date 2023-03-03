@@ -17,6 +17,8 @@ https://drive.google.com/file/d/1FpeFn3x0Hf46UgviB-6dI1UcGvVRbHeI/view?usp=shari
 3. Sequence Diagram - 
 4. State Diagramm - 
 
+User Requirements - https://docs.google.com/document/d/1d3Zh46-oW0Qu3vaexjKawI_dewbYrMkOlErw4i_GJCo/edit?usp=sharing
+
 ## Section 3 - Code 
 1. Choice of use case, explanation, and necessary classes/methods to complete it
 2. Choice of methods to implement first for the use case that you will implement for the exam, and why?
