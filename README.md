@@ -14,8 +14,8 @@ Link to UML Diagram file for 4 diagrams:
 https://drive.google.com/file/d/1FpeFn3x0Hf46UgviB-6dI1UcGvVRbHeI/view?usp=sharing
 1. Use Case Diagram - Use Case Diagram tab
 2. Class Diagram - UML-Classes tab
-3. Sequence Diagram - 
-4. State Diagramm - 
+3. Sequence Diagram - Sequence Diagrams
+4. State Diagramm - State Diagram
 
 User Requirements - https://docs.google.com/document/d/1d3Zh46-oW0Qu3vaexjKawI_dewbYrMkOlErw4i_GJCo/edit?usp=sharing
 
