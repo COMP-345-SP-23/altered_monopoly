@@ -14,14 +14,14 @@ public abstract class BoardPlaces {
      * @return name
      */
     public String getName() {
-        return null;
+        return name;
     }
 
     /*
      * @return type, determines what kind of BoardPlace
      */
     public int checkType() {
-        return -1;
+        return type;
     }
 
 }

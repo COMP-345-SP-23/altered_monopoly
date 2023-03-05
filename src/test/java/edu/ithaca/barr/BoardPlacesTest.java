@@ -18,6 +18,12 @@ public class BoardPlacesTest {
         assertEquals(3, cornerActions.checkType());
         BoardPlaces deckPlace = new DeckPlace("Community Chest");
         assertEquals(4, deckPlace.checkType());
+
+        assertEquals("BoardWalk", property.getName());
+        assertEquals("Short Line", railRoadCompanies.getName());
+        assertEquals("Income Tax", taxPayment.getName());
+        assertEquals("Free Parking", cornerActions.getName());
+        assertEquals("Community Chest", deckPlace.getName());  
     }
 
 }
