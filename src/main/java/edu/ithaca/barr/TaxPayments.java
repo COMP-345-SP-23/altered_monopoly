@@ -3,7 +3,11 @@ package edu.ithaca.barr;
 public class TaxPayments extends BoardPlaces {
     
     private int payment; //how much the tax payment is for the player
-    private final int type = 2;
+
+    public TaxPayments(String nameIn, int paymentIn){
+        super(nameIn, 2);
+        payment = paymentIn;
+    }
 
     /*
      * @return payment
@@ -11,4 +15,5 @@ public class TaxPayments extends BoardPlaces {
     public int getPayment(){
         return -1;
     }
+
 }

@@ -3,13 +3,25 @@ package edu.ithaca.barr;
 public class Property extends BoardPlaces {
     private int houses; //number of houses on a property
     private int hotels; //number of hotels on a property
-    private double houseValuePercent; //percentage to multiply by house count to find new rent amount
-    private double hotelValuePercent; //percentage to multiply by hotel count to find new rent amount
     private Player owner; //Player object that owns the property
     private boolean mortgaged; //whether or not the property has been mortgaged
     private int initialCost; //cost of the property when initially buying
     private int baseRent; //rent cost before accounting for houses and hotels
-    private final int type = 0;
+    private int houseCost = 200;
+    private int hotelCost = 200;
+    private int houseRentIncrease = 200;
+    private int hotelRentIncrease = 2000;
+    private int mortgageAmount = 200;
+
+    public Property(String nameIn, int initialCostIn, int baseRentIn){
+        super(nameIn, 0);
+        houses = 0;
+        hotels = 0;
+        owner = null;
+        mortgaged = false;
+        initialCost = initialCostIn;
+        baseRent = baseRentIn;
+    }
 
     /*
      * @post increments houses
@@ -90,4 +102,6 @@ public class Property extends BoardPlaces {
     public Player getOwner(){
         return null;
     }
+
+
 }  

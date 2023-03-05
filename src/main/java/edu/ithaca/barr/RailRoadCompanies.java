@@ -6,7 +6,16 @@ public class RailRoadCompanies extends BoardPlaces {
     private boolean mortgaged; //whether or not the property has been mortgaged
     private int initialCost; //cost of buying railroad/company
     private int baseRent; //cost of rent before calculating extra
-    private final int type = 1;
+    private int mortgageAmount = 200;
+
+    public RailRoadCompanies(String nameIn, int initialCostIn, int baseRentIn){
+        super(nameIn, 1);
+        owner = null;
+        mortgaged = false;
+        initialCost = initialCostIn;
+        baseRent = baseRentIn;
+
+    }
 
     /*
      * temprorarily 'sells' property so player cannot collect rent from it

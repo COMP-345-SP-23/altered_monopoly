@@ -2,7 +2,10 @@ package edu.ithaca.barr;
 
 public class DeckPlace extends BoardPlaces {
     
-    private final int type = 4;
+
+    public DeckPlace(String nameIn){
+        super(nameIn, 4);
+    }
 
     /*
      * draws communityChestChance card with either a positive or negative number to change players money amount by
@@ -11,4 +14,6 @@ public class DeckPlace extends BoardPlaces {
     public void drawCard(){
 
     }
+
+
 }
