@@ -13,7 +13,7 @@ public class CornerActions extends BoardPlaces{
      * @return inJail, whether or not the corner is 'go to jail'
      */
     public boolean getToJail(){
-        return false;
+        return toJail;
     }
 
 
