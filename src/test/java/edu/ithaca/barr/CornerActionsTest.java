@@ -1,6 +1,8 @@
 package edu.ithaca.barr;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +13,7 @@ public class CornerActionsTest {
 
         CornerActions jail = new CornerActions("Jail", false);//not a call to go to jail
         CornerActions toJail = new CornerActions("Go to Jail", true); //calls true to go to jail
-        assertEquals(false, jail.getToJail());
-        assertEquals(true, toJail.getToJail());
+        assertFalse(jail.getToJail());
+        assertTrue(toJail.getToJail());
     }
 }
