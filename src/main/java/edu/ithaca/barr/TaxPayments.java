@@ -13,7 +13,7 @@ public class TaxPayments extends BoardPlaces {
      * @return payment
      */
     public int getPayment(){
-        return -1;
+        return payment;
     }
 
 }
