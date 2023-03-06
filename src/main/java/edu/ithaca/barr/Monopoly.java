@@ -1,7 +1,9 @@
 package edu.ithaca.barr;
 
-import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
+
+import edu.ithaca.barr.bank.InsufficientFundsException;
 
 public class Monopoly {
     
@@ -108,6 +110,64 @@ public class Monopoly {
      */
     public int[] getDeck(){
         return deck;
+    }
+
+    public static void main(String[] args) throws InsufficientFundsException{
+        Scanner scan = new Scanner(System.in);
+        Monopoly monopoly = new Monopoly();
+        System.out.println("Welcome to Monopoly");
+        int piece;
+
+        do{
+            System.out.println("Please choose a piece:");
+            for (int i=0; i<monopoly.getPieces().length-1; i++){
+                System.out.println(i + ": " + monopoly.getPieces()[i]);
+            }
+            piece = scan.nextInt();
+        } while(piece>monopoly.getPieces().length-1);
+        Player player1 = new Player(monopoly.getPieces()[piece]);
+        System.out.println("You are the: " + player1.getGamePiece());
+        do {
+            System.out.println("press 1 to roll the die");
+        } while(scan.nextInt()!=1);
+
+        monopoly.rollDie(player1);
+        BoardPlaces[] board = monopoly.getBoard();
+        BoardPlaces place = board[player1.getLocation()];
+        System.out.println("Landed on: " + place.getName());
+
+
+        if (place.checkType() == 0){
+            player1.buyPropertyProperty((Property) place, player1);
+            System.out.println("Bought property");
+            System.out.println("Here are your properties:");
+            System.out.println(player1.getPropertiesString());
+        }
+        
+        if (place.checkType() == 1){
+            player1.buyPropertyRRC((RailRoadCompanies) place, player1);
+            System.out.println("Bought property");
+            System.out.println("Here are your properties:");
+            System.out.println(player1.getPropertiesString());
+        }
+
+        if (place.checkType() == 2){
+            player1.payUp(((TaxPayments) place).getPayment());
+            System.out.println("Paid $200 in taxes");
+        }
+
+        if (place.checkType() == 4){
+            int card = monopoly.getNextCard();
+            if (card<0){
+                player1.payUp(Math.abs(card));
+                System.out.println("Paid " + Math.abs(card) + " from a chance card");
+            }
+            else{
+                player1.collect(card);
+                System.out.println("Collected " + card + " from a chance card");
+            }
+        }
+
     }
 
 }
