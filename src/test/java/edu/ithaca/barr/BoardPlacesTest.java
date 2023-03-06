@@ -7,7 +7,7 @@ public class BoardPlacesTest {
     
     @Test 
     public void checkTypeTest(){ //constructors are still empty
-        //test for each individual type
+        //test for each individual type that extends BoardPlaces class
         BoardPlaces property = new Property("BoardWalk", 400, 50);
         assertEquals(0, property.checkType());
         BoardPlaces railRoadCompanies = new RailRoadCompanies("Short Line", 200, 25);
@@ -19,6 +19,7 @@ public class BoardPlacesTest {
         BoardPlaces deckPlace = new DeckPlace("Community Chest");
         assertEquals(4, deckPlace.checkType());
 
+        //test for each individual class type, ensuring extended properly with attributes
         assertEquals("BoardWalk", property.getName());
         assertEquals("Short Line", railRoadCompanies.getName());
         assertEquals("Income Tax", taxPayment.getName());

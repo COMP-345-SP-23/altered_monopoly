@@ -8,6 +8,6 @@ public class TaxPaymentsTest {
     @Test
     public void getPaymentTest(){
         TaxPayments taxPay = new TaxPayments("Income Tax", 200);
-        assertEquals(200, taxPay.getPayment());
+        assertEquals(200, taxPay.getPayment());//one case, all are same
     }
 }

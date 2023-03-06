@@ -10,12 +10,12 @@ public class RailRoadCompaniesTest {
     public void mortgageTest(){
         Player player = new Player("Thimble");
         RailRoadCompanies rrc = new RailRoadCompanies("Short Line", 200, 50);
-        rrc.setOwner(player);
+        rrc.setOwner(player);// before mortgage
         assertFalse(rrc.getMortgage());
         assertEquals(1500, player.getMoney());
 
         rrc.mortgage();
-        assertTrue(rrc.getMortgage());
+        assertTrue(rrc.getMortgage());//after mortgage
         assertEquals(1700, player.getMoney());
     }
 

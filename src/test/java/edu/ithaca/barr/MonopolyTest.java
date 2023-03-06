@@ -2,8 +2,6 @@ package edu.ithaca.barr;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.lang.reflect.Array;
-
 import org.junit.jupiter.api.Test;
 
 public class MonopolyTest {
@@ -15,7 +13,7 @@ public class MonopolyTest {
         Monopoly.rollDie(player);
         int roll = player.getLocation() - location;
         boolean test = false;
-        if (roll>1 && roll<13){
+        if (roll>1 && roll<13){ //covers all possible values for rolling two six sided die, other values not possible
             test = true;
         }
         assertTrue(test);
@@ -23,7 +21,7 @@ public class MonopolyTest {
 
     @Test
     public void passGoTest(){
-        Player player = new Player("Top Hat");//passing go
+        Player player = new Player("Top Hat");//passing over go place
         assertEquals(1500, player.getMoney());
         player.movePiece(39, player);
         player.movePiece(5, player);
@@ -41,7 +39,7 @@ public class MonopolyTest {
         Monopoly monopoly = new Monopoly();
         int next = monopoly.getNextCard();
         boolean flag = false;
-        for (int i=0; i<monopoly.getDeck().length; i++){
+        for (int i=0; i<monopoly.getDeck().length; i++){//pulling a card from the deck, ensuring that card is in the deck
             if(monopoly.getDeck()[i]==next){
                 flag = true;
             }

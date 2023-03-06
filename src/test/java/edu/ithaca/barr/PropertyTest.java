@@ -12,7 +12,7 @@ public class PropertyTest {
         Player player = new Player("Thimble");
         property.setOwner(player);
         assertEquals(0, property.getHouses());
-        property.buyHouse();
+        property.buyHouse();//each just buying a house, expecting it to increment each time
         assertEquals(1, property.getHouses());
         property.buyHouse();
         property.buyHouse();
@@ -20,6 +20,7 @@ public class PropertyTest {
         property.buyHouse();
 
         assertEquals(4, property.getHouses());
+        //switches over to check that buying a single hotel chances house and hotel counts
         property.buyHotel();
         assertEquals(1, property.getHotels());
         assertEquals(0, property.getHouses());
@@ -35,14 +36,14 @@ public class PropertyTest {
         property.buyHouse();
         property.buyHouse();
         assertEquals(3, property.getHouses());
-        property.sellHouse();
+        property.sellHouse();//simply selling a house when player has multiple
         assertEquals(2, property.getHouses());
         property.buyHouse();
         property.buyHouse();
 
         property.buyHotel();
         assertEquals(1, property.getHotels());
-        property.sellHotel();
+        property.sellHotel();//simply selling a hotel when player has 1
         assertEquals(0, property.getHotels());
     }
 
@@ -52,16 +53,19 @@ public class PropertyTest {
         Property property = new Property("BoardWalk", 400, 50);
         property.setOwner(player);
         assertEquals(50, property.getBaseRent());
+        //base rent without houses or hotels
+        assertEquals(50, property.calculateNewRent());
         property.buyHouse();
 
-        assertEquals(250, property.calculateNewRent());
+        
+        assertEquals(250, property.calculateNewRent());//new rent with 1 house
         property.buyHouse();
         property.buyHouse();
         property.buyHouse();
         property.buyHotel();
-        assertEquals(2050, property.calculateNewRent());
+        assertEquals(2050, property.calculateNewRent());//new rent with 1 hotel
         property.buyHouse();
-        assertEquals(2250, property.calculateNewRent());
+        assertEquals(2250, property.calculateNewRent());//new rent with 1 hotel, 1 house
     }
 
     @Test
@@ -70,9 +74,11 @@ public class PropertyTest {
         Property property = new Property("BoardWalk", 400, 50);
         property.setOwner(player);
         assertFalse(property.getMortgage());
+        //before mortgage
         assertEquals(1500, player.getMoney());
 
         property.mortgage();
+        //after mortgage
         assertTrue(property.getMortgage());
         assertEquals(1700, player.getMoney());
 

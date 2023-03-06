@@ -13,9 +13,9 @@ public class PlayerTest {
     @Test
     public void setGetJail(){
         Player player = new Player("Top Hat");
-        assertFalse(player.getJail());
+        assertFalse(player.getJail());//when jail should be false to start
         player.setJail(true);
-        assertTrue(player.getJail());
+        assertTrue(player.getJail());//jail should be true after being set
     }
 
     @Test
@@ -29,7 +29,7 @@ public class PlayerTest {
         assertEquals(2, player.getLocation());
         player.movePiece(12, player);//highest possible move
         assertEquals(14, player.getLocation());
-        player.movePiece(5, player);//basic middle number
+        player.movePiece(5, player);//basic middle numbers
         player.movePiece(1, player);
         player.movePiece(12, player);
         assertEquals(32, player.getLocation());
@@ -67,10 +67,10 @@ public class PlayerTest {
         Player player = new Player("Thimble");
         Property property1 = new Property("BoardWalk", 400, 50);
         Property property2 = new Property("name", 50, 50);
-        assertEquals(0, player.getProperties().size());
+        assertEquals(0, player.getProperties().size());//when no properties are owned
         player.buyPropertyProperty(property1, player);
         player.buyPropertyProperty(property2, player);
-        assertEquals(2, player.getProperties().size());
+        assertEquals(2, player.getProperties().size());//when multiple properties are owned
     }
 
     @Test
@@ -78,10 +78,10 @@ public class PlayerTest {
         Player player = new Player("Thimble");
         RailRoadCompanies rrc1 = new RailRoadCompanies("Short Line", 200, 25);
         RailRoadCompanies rrc2 = new RailRoadCompanies("Water Works", 200, 25);
-        assertEquals(0, player.getRailRoadCompanies().size());
+        assertEquals(0, player.getRailRoadCompanies().size());//when 0 rrc's are owned
         player.buyPropertyRRC(rrc1, player);
         player.buyPropertyRRC(rrc2, player);
-        assertEquals(2, player.getRailRoadCompanies().size());
+        assertEquals(2, player.getRailRoadCompanies().size());//when multiple rrc's are owned
     }
 
     @Test
@@ -105,10 +105,10 @@ public class PlayerTest {
         Player player = new Player("Thimble");
         Property property1 = new Property("BoardWalk", 400, 50);
         Property property2 = new Property("name", 50, 50);
-        assertEquals(0, player.getProperties().size());
+        assertEquals(0, player.getProperties().size());//before buying any properties
         player.buyPropertyProperty(property1, player);
         player.buyPropertyProperty(property2, player);
-        assertEquals(2, player.getProperties().size());
+        assertEquals(2, player.getProperties().size());//after buying multiple properties
     }
 
     @Test
@@ -116,10 +116,10 @@ public class PlayerTest {
         Player player = new Player("Thimble");
         RailRoadCompanies rrc1 = new RailRoadCompanies("Short Line", 200, 25);
         RailRoadCompanies rrc2 = new RailRoadCompanies("Water Works", 200, 25);
-        assertEquals(0, player.getRailRoadCompanies().size());
+        assertEquals(0, player.getRailRoadCompanies().size());//before buying any rrcs
         player.buyPropertyRRC(rrc1, player);
         player.buyPropertyRRC(rrc2, player);
-        assertEquals(2, player.getRailRoadCompanies().size());
+        assertEquals(2, player.getRailRoadCompanies().size());//after buying multiples rrcs
     }
 
 }
