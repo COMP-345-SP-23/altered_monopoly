@@ -32,7 +32,7 @@ public class MonopolyTest {
         Player player2 = new Player("Top Hat");//landing directly on go
         assertEquals(1500, player2.getMoney());
         player2.movePiece(30, player2);
-        player2.movePiece(10, player);
+        player2.movePiece(10, player2);
         assertEquals(1700, player2.getMoney());
     }
 
