@@ -37,18 +37,16 @@ public class Property extends BoardPlaces {
     }
 
     /*
-     * @param count of houses to be sold
-     * @post houses count decrements by count
+     * @post houses count decrements by 1
      */
-    public void sellHouse(int count){
+    public void sellHouse(){
 
     }
 
     /*
-     * @param count of hotels to be sold
-     * @post hotel count decrements by count
+     * @post hotel count decrements by 1
      */
-    public void sellHotel(int count){
+    public void sellHotel(){
 
     }
 
@@ -103,14 +101,6 @@ public class Property extends BoardPlaces {
     }
 
     /*
-     * @post resets owner to null
-     * @post property removed from player's list, money given to player
-     */
-    public void sellProperty(){
-
-    }
-
-    /*
      * @return owner
      */
     public Player getOwner(){
@@ -121,7 +111,7 @@ public class Property extends BoardPlaces {
      * @post owner changed to new Player
      */
     public void setOwner(Player player){
-        
+
     }
 
 }  
