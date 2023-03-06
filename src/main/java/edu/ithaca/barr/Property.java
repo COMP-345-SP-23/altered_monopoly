@@ -22,7 +22,6 @@ public class Property extends BoardPlaces {
         initialCost = initialCostIn;
         baseRent = baseRentIn;
     }
-
     /*
      * @post increments houses
      */
@@ -34,6 +33,22 @@ public class Property extends BoardPlaces {
      * @post increments hotels
      */
     public void buyHotel(){
+
+    }
+
+    /*
+     * @param count of houses to be sold
+     * @post houses count decrements by count
+     */
+    public void sellHouse(int count){
+
+    }
+
+    /*
+     * @param count of hotels to be sold
+     * @post hotel count decrements by count
+     */
+    public void sellHotel(int count){
 
     }
 
@@ -63,14 +78,6 @@ public class Property extends BoardPlaces {
      * @post gets money from property once
      */
     public void mortgage(){
-
-    }
-
-    /*
-     * @post player loses money, property is added to player's list
-     * @param player object determines who property belongs to
-     */
-    public void buyProperty(Player owner){
 
     }
 

@@ -2,6 +2,8 @@ package edu.ithaca.barr;
 
 import java.util.ArrayList;
 
+import edu.ithaca.barr.bank.InsufficientFundsException;
+
 public class Player {
     private String gamePiece; //player's chosen game piece to represent them
     private int money; //amount of money player has in their posession
@@ -11,11 +13,13 @@ public class Player {
     private int location; //index of place in list of places on the game board
     private boolean passGo; //true if player has passed go on the current turn
 
-    /*
-     * @return gamePiece
-     */
-    public String getGamePiece(){
-        return null;
+    public Player(String gamePiece){
+        money = 1500;
+        properties = new ArrayList<Property>();
+        railRoadCompanies = new ArrayList<RailRoadCompanies>();
+        jail = false;
+        location = 0;
+        passGo = false;
     }
 
     /*
@@ -48,8 +52,9 @@ public class Player {
 
     /*
      * @post jail set to true if in jail, false if leaving jail
+     * @param jail true if in jail, false if leaving jail
      */
-    public void setJail(){
+    public void setJail(boolean jail){
 
     }
 
@@ -95,8 +100,8 @@ public class Player {
      * @param amount of money to take from player's money
      * @post money decreases by amount
      */
-    public void payUp(int amount){
-
+    public void payUp(int amount) throws InsufficientFundsException{
+        
     }
 
     /*
@@ -114,20 +119,28 @@ public class Player {
 
     }
 
+    
     /*
-     * @param property to be removed from list
-     * @post removes owner from property by calling sellProperty in Property
+     * @post player loses money, property is added to player's list
+     * @param property to be bought
      */
-    public void sellProperty(Property property){
+    public void buyPropertyProperty(Property property){
 
     }
 
     /*
-     * @param railRoadCompany to be removed from list
-     * @post removes owner from property by calling sellProperty in RailRoadCompanies
+     * @post player loses money, property is added to player's list
+     * @param player object determines who property belongs to
      */
-    public void sellProperty(RailRoadCompanies rrc){
+    public void buyPropertyRRC(RailRoadCompanies rrc){
 
+    }
+
+    /*
+     * @return gamePiece
+     */
+    public String getGamePiece(){
+        return null;
     }
 
     
