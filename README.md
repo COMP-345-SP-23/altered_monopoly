@@ -31,6 +31,8 @@ User Requirements - https://docs.google.com/document/d/1d3Zh46-oW0Qu3vaexjKawI_d
   
 3. Note of where to find the integration test
 
+  integration test present in MonopolyTests
+
 
 Good Luck!
 
