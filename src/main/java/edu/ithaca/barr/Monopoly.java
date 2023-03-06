@@ -6,7 +6,7 @@ public class Monopoly {
     
     private ArrayList<BoardPlaces> board; //list of all board places in correct order
     private  final String[] gamePieces = new String[]{"Top Hat", "RaceCar", "Dog", "Battleship", "Wheelbarrow", "Boot"}; //list of all pieces players can be represented as
-    private ArrayList<Integer> deck; //deck of communityChestChance cards
+    private int[] deck = new int[]{100, 500, -100, 50, -25, -50, 25}; //deck of communityChestChance cards
     
     /*
      * @return board order list
@@ -17,17 +17,19 @@ public class Monopoly {
 
     /*
      * rolls 2 die randomly
+     * @param player's turn to roll and move along board
      * @post player will be moved along the board
      */
-    public void rollDie(){
+    public static void rollDie(Player player){
 
     }
 
     /*
      * when player makes a full loop around the game board
-     * @post player's passGo check changes to true
+     * @param which player will be receiving the money
+     * @post player's passGo check changes to true, player recieves 200
      */
-    public void passGo(){
+    public static void passGo(Player player){
 
     }
 
@@ -43,6 +45,13 @@ public class Monopoly {
      */
     public ArrayList<String> getPieces(){
         return null;
+    }
+
+    /*
+     * @return deck
+     */
+    public int[] getDeck(){
+        return deck;
     }
 
 }

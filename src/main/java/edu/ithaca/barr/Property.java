@@ -1,6 +1,5 @@
 package edu.ithaca.barr;
 
-import edu.ithaca.barr.bank.InsufficientFundsException;
 
 public class Property extends BoardPlaces {
     private int houses; //number of houses on a property

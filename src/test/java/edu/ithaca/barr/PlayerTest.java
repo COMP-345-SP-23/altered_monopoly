@@ -25,17 +25,17 @@ public class PlayerTest {
         for (int i=0; i<40; i++){
             board.add(i);
         }
-        player.movePiece(2);//lowest possible move
+        player.movePiece(2, player);//lowest possible move
         assertEquals(2, player.getLocation());
-        player.movePiece(12);//highest possible move
+        player.movePiece(12, player);//highest possible move
         assertEquals(14, player.getLocation());
-        player.movePiece(5);//basic middle number
-        player.movePiece(1);
-        player.movePiece(12);
+        player.movePiece(5, player);//basic middle number
+        player.movePiece(1, player);
+        player.movePiece(12, player);
         assertEquals(32, player.getLocation());
-        player.movePiece(6);
+        player.movePiece(6, player);
         assertEquals(38, player.getLocation());
-        player.movePiece(4);
+        player.movePiece(4, player);
         assertEquals(2, player.getLocation());//testing for looping around the end to the beginning of the board
     }
 
@@ -61,15 +61,6 @@ public class PlayerTest {
         assertEquals(1300, player.getMoney());
         assertThrows(InsufficientFundsException.class, () -> player.payUp(2000));//trying to take away more than player has
     }
-
-    @Test
-    public void checkSetPassGoTest(){
-        Player player = new Player("Thimble");
-        assertFalse(player.checkPassGo());
-        player.setPassGo(true);
-        assertTrue(player.checkPassGo());
-    }
-
 
     @Test
     public void getPropertiesTest(){
@@ -100,7 +91,7 @@ public class PlayerTest {
         RailRoadCompanies rrc1 = new RailRoadCompanies("Short Line", 200, 25);
         player.buyPropertyProperty(property1, player);
         player.buyPropertyRRC(rrc1, player);
-        assertEquals("BoardWalk: 0 houses, 0 hotels, base rent: 50, mortgaged: false\n Short Line: rent: 25, mortgaged: false", player.getPropertiesString());
+        assertEquals("BoardWalk: 0 houses, 0 hotels, base rent: 50, mortgaged: false\nShort Line: rent: 25, mortgaged: false\n", player.getPropertiesString());
     }
 
     @Test

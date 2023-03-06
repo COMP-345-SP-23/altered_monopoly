@@ -11,7 +11,6 @@ public class Player {
     private ArrayList<RailRoadCompanies> railRoadCompanies; //list of all of player's railroads/companies
     private boolean jail; //true if player is currently in jail
     private int location; //index of place in list of places on the game board
-    private boolean passGo; //true if player has passed go on the current turn
 
     public Player(String gamePieceIn){
         gamePiece = gamePieceIn;
@@ -20,7 +19,6 @@ public class Player {
         railRoadCompanies = new ArrayList<RailRoadCompanies>();
         jail = false;
         location = 0;
-        passGo = false;
     }
 
     /*
@@ -106,10 +104,11 @@ public class Player {
      * @post location changes according to how many places the piece moves
      * @param palces to move the piece
      */
-    public void movePiece(int places){
+    public void movePiece(int places, Player player){
         if (location+places>39){
             int toGo = places - (39 - location);
             location = toGo - 1;
+            Monopoly.passGo(player);
         }
         else{
             location = location + places;
@@ -136,22 +135,6 @@ public class Player {
             throw new InsufficientFundsException("Not enough money, need to sell houses/hotels or mortgage property");
         }
     }
-
-    /*
-     * @return passGo
-     */
-    public boolean checkPassGo(){
-        return passGo;
-    }
-
-    /*
-     * @param pass true if being sent to jail, false if leaving fail
-     * @post change passGo accordingly
-     */
-    public void setPassGo(boolean pass){
-        passGo = pass;
-    }
-
     
     /*
      * @post player loses money, property is added to player's list
