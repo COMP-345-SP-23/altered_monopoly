@@ -21,7 +21,14 @@ User Requirements - https://docs.google.com/document/d/1d3Zh46-oW0Qu3vaexjKawI_d
 
 ## Section 3 - Code 
 1. Choice of use case, explanation, and necessary classes/methods to complete it
+
+  Use case is a single turn at the start of the game of monopoly so the game can begin and be sampled, this requires majority of the game being implemented
+  Monopoly class entirety, all classes that extend BoardPlaces(especially the buy methods for Property and RailRoadCompanies, and Player
+
 2. Choice of methods to implement first for the use case that you will implement for the exam, and why?
+
+  all BoardPlaces so the board is complete, Player so whoever is playing the game has their own information, and Monopoly so other actions can be compeleted
+  
 3. Note of where to find the integration test
 
 
