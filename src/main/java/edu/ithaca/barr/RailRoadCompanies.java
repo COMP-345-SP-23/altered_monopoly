@@ -68,15 +68,4 @@ public class RailRoadCompanies extends BoardPlaces {
         
     }
 
-    /*
-     * @post property removed from player's list, money given to player
-     * @post resets owner to null
-     */
-    public void sellProperty() {
-
-    }
-
-
-
-
 }

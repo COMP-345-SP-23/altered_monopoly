@@ -59,7 +59,7 @@ public class Player {
         }
         for (int a=0; a<railRoadCompanies.size(); a++){
             RailRoadCompanies rrc = railRoadCompanies.get(a);
-            string = string + rrc.getName() + ": mortgaged: " + rrc.getMortgage() + "\n";
+            string = string + rrc.getName() + ": rent: " + rrc.getBaseRent() + ", " + "mortgaged: " + rrc.getMortgage() + "\n";
         }
         
         return string;

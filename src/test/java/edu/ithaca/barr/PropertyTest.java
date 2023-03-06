@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import edu.ithaca.barr.bank.InsufficientFundsException;
-
 public class PropertyTest {
     
     @Test

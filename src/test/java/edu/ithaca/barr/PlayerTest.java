@@ -100,7 +100,7 @@ public class PlayerTest {
         RailRoadCompanies rrc1 = new RailRoadCompanies("Short Line", 200, 25);
         player.buyPropertyProperty(property1, player);
         player.buyPropertyRRC(rrc1, player);
-        assertEquals("Boardwalk: 0 houses, 0 hotels, rent: 50\n Short Line: rent: 25", player.getPropertiesString());
+        assertEquals("BoardWalk: 0 houses, 0 hotels, base rent: 50, mortgaged: false\n Short Line: rent: 25, mortgaged: false", player.getPropertiesString());
     }
 
     @Test
@@ -114,7 +114,7 @@ public class PlayerTest {
         Player player = new Player("Thimble");
         Property property1 = new Property("BoardWalk", 400, 50);
         Property property2 = new Property("name", 50, 50);
-        assertEquals(null, player.getProperties());
+        assertEquals(0, player.getProperties().size());
         player.buyPropertyProperty(property1, player);
         player.buyPropertyProperty(property2, player);
         assertEquals(2, player.getProperties().size());
@@ -125,7 +125,7 @@ public class PlayerTest {
         Player player = new Player("Thimble");
         RailRoadCompanies rrc1 = new RailRoadCompanies("Short Line", 200, 25);
         RailRoadCompanies rrc2 = new RailRoadCompanies("Water Works", 200, 25);
-        assertEquals(null, player.getRailRoadCompanies());
+        assertEquals(0, player.getRailRoadCompanies().size());
         player.buyPropertyRRC(rrc1, player);
         player.buyPropertyRRC(rrc2, player);
         assertEquals(2, player.getRailRoadCompanies().size());
