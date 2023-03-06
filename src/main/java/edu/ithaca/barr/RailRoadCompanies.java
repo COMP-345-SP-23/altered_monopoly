@@ -22,50 +22,43 @@ public class RailRoadCompanies extends BoardPlaces {
      * @post gets money from property once
      */
     public void mortgage(){
-
+        owner.collect(mortgageAmount);
+        mortgaged = true;
     }
 
     /*
      * @return mortgaged
      */
     public boolean getMortgage(){
-        return false;
-    }
-
-    /*
-     * @post player loses money, property is added to player's list
-     * @param player object determines who property belongs to
-     */
-    public void buyProperty(Player owner){
-
+        return mortgaged;
     }
 
     /*
      * @return initialCost
      */
     public int getInitialCost(){
-        return -1;
+        return initialCost;
     }
 
     /*
      * @return baseRent
      */
     public int getBaseRent(){
-        return -1;
+        return baseRent;
     }
 
     /*
      * return owner
      */
     public Player getOwner(){
-        return null;
+        return owner;
     }
 
      /*
      * @post owner changed to new Player
      */
     public void setOwner(Player player){
-        
+        owner = player;
     }
 
 }
