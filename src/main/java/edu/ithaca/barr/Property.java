@@ -82,6 +82,13 @@ public class Property extends BoardPlaces {
     }
 
     /*
+     * @return mortgaged
+     */
+    public boolean getMortgage(){
+        return false;
+    }
+
+    /*
      * @return initialCost
      */
     public int getInitialCost(){
@@ -110,5 +117,11 @@ public class Property extends BoardPlaces {
         return null;
     }
 
+    /*
+     * @post owner changed to new Player
+     */
+    public void setOwner(Player player){
+        
+    }
 
 }  

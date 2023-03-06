@@ -26,6 +26,13 @@ public class RailRoadCompanies extends BoardPlaces {
     }
 
     /*
+     * @return mortgaged
+     */
+    public boolean getMortgage(){
+        return false;
+    }
+
+    /*
      * @post player loses money, property is added to player's list
      * @param player object determines who property belongs to
      */
@@ -52,6 +59,13 @@ public class RailRoadCompanies extends BoardPlaces {
      */
     public Player getOwner(){
         return null;
+    }
+
+     /*
+     * @post owner changed to new Player
+     */
+    public void setOwner(Player player){
+        
     }
 
     /*

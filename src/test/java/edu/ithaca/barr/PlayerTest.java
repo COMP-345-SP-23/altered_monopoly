@@ -33,8 +33,10 @@ public class PlayerTest {
         player.movePiece(1);
         player.movePiece(12);
         assertEquals(32, player.getLocation());
-        player.movePiece(12);
-        assertEquals(3, player.getLocation());//testing for looping around the end to the beginning of the board
+        player.movePiece(6);
+        assertEquals(38, player.getLocation());
+        player.movePiece(4);
+        assertEquals(2, player.getLocation());//testing for looping around the end to the beginning of the board
     }
 
     @Test
@@ -74,9 +76,9 @@ public class PlayerTest {
         Player player = new Player("Thimble");
         Property property1 = new Property("BoardWalk", 400, 50);
         Property property2 = new Property("name", 50, 50);
-        assertEquals(null, player.getProperties());
-        player.buyPropertyProperty(property1);
-        player.buyPropertyProperty(property2);
+        assertEquals(0, player.getProperties().size());
+        player.buyPropertyProperty(property1, player);
+        player.buyPropertyProperty(property2, player);
         assertEquals(2, player.getProperties().size());
     }
 
@@ -85,9 +87,9 @@ public class PlayerTest {
         Player player = new Player("Thimble");
         RailRoadCompanies rrc1 = new RailRoadCompanies("Short Line", 200, 25);
         RailRoadCompanies rrc2 = new RailRoadCompanies("Water Works", 200, 25);
-        assertEquals(null, player.getRailRoadCompanies());
-        player.buyPropertyRRC(rrc1);
-        player.buyPropertyRRC(rrc2);
+        assertEquals(0, player.getRailRoadCompanies().size());
+        player.buyPropertyRRC(rrc1, player);
+        player.buyPropertyRRC(rrc2, player);
         assertEquals(2, player.getRailRoadCompanies().size());
     }
 
@@ -96,8 +98,8 @@ public class PlayerTest {
         Player player = new Player("Thimble");
         Property property1 = new Property("BoardWalk", 400, 50);
         RailRoadCompanies rrc1 = new RailRoadCompanies("Short Line", 200, 25);
-        player.buyPropertyProperty(property1);
-        player.buyPropertyRRC(rrc1);
+        player.buyPropertyProperty(property1, player);
+        player.buyPropertyRRC(rrc1, player);
         assertEquals("Boardwalk: 0 houses, 0 hotels, rent: 50\n Short Line: rent: 25", player.getPropertiesString());
     }
 
@@ -113,8 +115,8 @@ public class PlayerTest {
         Property property1 = new Property("BoardWalk", 400, 50);
         Property property2 = new Property("name", 50, 50);
         assertEquals(null, player.getProperties());
-        player.buyPropertyProperty(property1);
-        player.buyPropertyProperty(property2);
+        player.buyPropertyProperty(property1, player);
+        player.buyPropertyProperty(property2, player);
         assertEquals(2, player.getProperties().size());
     }
 
@@ -124,8 +126,8 @@ public class PlayerTest {
         RailRoadCompanies rrc1 = new RailRoadCompanies("Short Line", 200, 25);
         RailRoadCompanies rrc2 = new RailRoadCompanies("Water Works", 200, 25);
         assertEquals(null, player.getRailRoadCompanies());
-        player.buyPropertyRRC(rrc1);
-        player.buyPropertyRRC(rrc2);
+        player.buyPropertyRRC(rrc1, player);
+        player.buyPropertyRRC(rrc2, player);
         assertEquals(2, player.getRailRoadCompanies().size());
     }
 

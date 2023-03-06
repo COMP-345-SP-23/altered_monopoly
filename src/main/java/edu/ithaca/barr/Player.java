@@ -13,7 +13,8 @@ public class Player {
     private int location; //index of place in list of places on the game board
     private boolean passGo; //true if player has passed go on the current turn
 
-    public Player(String gamePiece){
+    public Player(String gamePieceIn){
+        gamePiece = gamePieceIn;
         money = 1500;
         properties = new ArrayList<Property>();
         railRoadCompanies = new ArrayList<RailRoadCompanies>();
@@ -26,50 +27,63 @@ public class Player {
      * @return money
      */
     public int getMoney(){
-        return -1;
+        return money;
     }
 
     /*
      * @return arraylist of player's properties
      */
     public ArrayList<Property> getProperties(){
-        return null;
+        return properties;
     }
 
     /*
      * @return player's properties as a string
      */
     public String getPropertiesString(){
-        return null;
+        String string = "";
+        for (int i=0; i<properties.size(); i++){
+            Property prop = properties.get(i);
+            string = string + prop.getName() + ": " + 
+                prop.getHouses() + " houses, " + prop.getHotels() 
+                + " hotels, base rent: " + prop.getBaseRent() 
+                + ", mortgaged: " + prop.getMortgage() + "\n";
+        }
+        for (int a=0; a<railRoadCompanies.size(); a++){
+            RailRoadCompanies rrc = railRoadCompanies.get(a);
+            string = string + rrc.getName() + ": mortgaged: " + rrc.getMortgage() + "\n";
+        }
+        
+        return string;
     }
 
     /*
      * @return arraylist of player's railroads and companies
      */
     public ArrayList<RailRoadCompanies> getRailRoadCompanies(){
-        return null;
+        return railRoadCompanies;
     }
 
     /*
      * @post jail set to true if in jail, false if leaving jail
      * @param jail true if in jail, false if leaving jail
      */
-    public void setJail(boolean jail){
-
+    public void setJail(boolean jailIn){
+        jail = jailIn;
     }
 
     /*
      * @return jail
      */
     public boolean getJail(){
-        return false;
+        return jail;
     }
 
     /*
      * @return location
      */
     public int getLocation(){
-        return -1;
+        return location;
     }
 
     /*
@@ -77,7 +91,7 @@ public class Player {
      * @param piece string of piece to represent the player
      */
     public void setGamePiece(String piece){
-
+        gamePiece = piece;
     }
 
     /*
@@ -85,7 +99,13 @@ public class Player {
      * @param palces to move the piece
      */
     public void movePiece(int places){
-
+        if (location+places>39){
+            int toGo = places - (39 - location);
+            location = toGo - 1;
+        }
+        else{
+            location = location + places;
+        }
     }
 
     /*
@@ -93,7 +113,7 @@ public class Player {
      * @post money increases by amount
      */
     public void collect(int amount){
-
+        money = money + amount;
     }
 
     /*
@@ -101,14 +121,19 @@ public class Player {
      * @post money decreases by amount
      */
     public void payUp(int amount) throws InsufficientFundsException{
-        
+        if (money - amount >= 0){
+            money = money - amount;
+        }
+        else{
+            throw new InsufficientFundsException("Not enough money, need to sell houses/hotels or mortgage property");
+        }
     }
 
     /*
      * @return passGo
      */
     public boolean checkPassGo(){
-        return false;
+        return passGo;
     }
 
     /*
@@ -116,7 +141,7 @@ public class Player {
      * @post change passGo accordingly
      */
     public void setPassGo(boolean pass){
-
+        passGo = pass;
     }
 
     
@@ -124,15 +149,24 @@ public class Player {
      * @post player loses money, property is added to player's list
      * @param property to be bought
      */
-    public void buyPropertyProperty(Property property){
-
+    public void buyPropertyProperty(Property property, Player player){
+        if (property.getInitialCost()<= money){
+            property.setOwner(player);
+            money = money - property.getInitialCost();
+            properties.add(property);
+        }
     }
 
     /*
      * @post player loses money, property is added to player's list
      * @param player object determines who property belongs to
      */
-    public void buyPropertyRRC(RailRoadCompanies rrc){
+    public void buyPropertyRRC(RailRoadCompanies rrc, Player player){
+        if (rrc.getInitialCost()<= money){
+            rrc.setOwner(player);
+            money = money - rrc.getInitialCost();
+            railRoadCompanies.add(rrc);
+        }
 
     }
 
@@ -140,7 +174,7 @@ public class Player {
      * @return gamePiece
      */
     public String getGamePiece(){
-        return null;
+        return gamePiece;
     }
 
     
