@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import edu.ithaca.barr.bank.InsufficientFundsException;
+
 public class MonopolyTest {
     
     @Test
@@ -45,6 +47,50 @@ public class MonopolyTest {
             }
         }
         assertTrue(flag);
+
+    }
+
+    @Test
+    public void integrationTest() throws InsufficientFundsException{
+        Monopoly monopoly = new Monopoly();
+        Player player = new Player("Thimble");
+        BoardPlaces[] board = monopoly.getBoard();
+
+        Monopoly.rollDie(player);
+        assertTrue(player.getLocation()<13 && player.getLocation()>1);
+        int index = player.getLocation();
+
+        BoardPlaces place = board[index];
+        assertTrue(place.checkType()>-1 && place.checkType()<5);
+
+        //player interacts with Property and BoardPlaces
+        if (place.checkType() == 0){
+            player.buyPropertyProperty((Property) place, player);
+            assertEquals(1, player.getProperties().size());
+        }
+        
+        //player interacts with RailRoadCompanies and BoardPlaces
+        if (place.checkType() == 1){
+            player.buyPropertyRRC((RailRoadCompanies) place, player);
+            assertEquals(1, player.getRailRoadCompanies().size());
+        }
+
+        //player interacts with TaxPayments and BoardPlaces
+        if (place.checkType() == 2){
+            player.payUp(((TaxPayments) place).getPayment());
+            assertEquals(1300, player.getMoney());
+        }
+        //skips 3 as its impossible to land on go to jail in the first turn and other corners do nothing
+        //player interacts with BoardPlaces and Monopoly
+        if (place.checkType() == 4){
+            int card = monopoly.getNextCard();
+            if (card<0){
+                player.payUp(Math.abs(card));
+            }
+            else{
+                player.collect(card);
+            }
+        }
 
     }
 

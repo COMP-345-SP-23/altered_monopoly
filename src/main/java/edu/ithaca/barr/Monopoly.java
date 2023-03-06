@@ -58,8 +58,8 @@ public class Monopoly {
     /*
      * @return board order list
      */
-    public ArrayList<BoardPlaces> getBoard(){
-        return null;
+    public BoardPlaces[] getBoard(){
+        return board;
     }
 
     /*
