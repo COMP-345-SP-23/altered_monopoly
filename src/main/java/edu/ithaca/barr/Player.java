@@ -31,6 +31,14 @@ public class Player {
     }
 
     /*
+     * @param moneyIn amount to set money to
+     * @post money becomes new value
+     */
+    public void setMoney(int moneyIn){
+        money = moneyIn;
+    }
+
+    /*
      * @return arraylist of player's properties
      */
     public ArrayList<Property> getProperties(){

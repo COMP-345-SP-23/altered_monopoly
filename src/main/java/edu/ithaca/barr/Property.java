@@ -1,5 +1,7 @@
 package edu.ithaca.barr;
 
+import edu.ithaca.barr.bank.InsufficientFundsException;
+
 public class Property extends BoardPlaces {
     private int houses; //number of houses on a property
     private int hotels; //number of hotels on a property
@@ -25,50 +27,64 @@ public class Property extends BoardPlaces {
     /*
      * @post increments houses
      */
-    public void buyHouse(){
-
+    public void buyHouse() {
+        if (owner.getMoney() - houseCost >= 0){
+            houses += 1;
+            owner.setMoney(owner.getMoney()-houseCost);
+        }
     }
 
     /*
      * @post increments hotels
      */
     public void buyHotel(){
-
+        if ((owner.getMoney() - hotelCost >= 0) && (houses >= 4)){
+            hotels += 1;
+            houses = houses - 4;
+            owner.setMoney(owner.getMoney()-hotelCost);
+        }
     }
 
     /*
      * @post houses count decrements by 1
      */
     public void sellHouse(){
-
+        if (houses > 0){
+            houses = houses - 1;
+            owner.collect((int)houseCost/2);
+        }
     }
 
     /*
      * @post hotel count decrements by 1
      */
     public void sellHotel(){
-
+        if (hotels > 0){
+            hotels = hotels - 1;
+            owner.collect((int)hotelCost/2);
+        }
     }
 
     /*
      * @return houses
      */
     public int getHouses(){
-        return -1;
+        return houses;
     }
 
     /*
      * @return hotels
      */
     public int getHotels(){
-        return -1;
+        return hotels;
     }
 
     /*
      * @return rent cost based on initialCost, number of houses and hotels, and their percentages
      */
     public int calculateNewRent(){
-        return -1;
+        int newRent = baseRent + (houseRentIncrease * houses) + (hotelRentIncrease * hotels);
+        return newRent;
     }
 
     /*
@@ -76,42 +92,43 @@ public class Property extends BoardPlaces {
      * @post gets money from property once
      */
     public void mortgage(){
-
+        owner.collect(mortgageAmount);
+        mortgaged = true;
     }
 
     /*
      * @return mortgaged
      */
     public boolean getMortgage(){
-        return false;
+        return mortgaged;
     }
 
     /*
      * @return initialCost
      */
     public int getInitialCost(){
-        return -1;
+        return initialCost;
     }
 
     /*
      * @return baseRent
      */
     public int getBaseRent(){
-        return -1;
+        return baseRent;
     }
 
     /*
      * @return owner
      */
     public Player getOwner(){
-        return null;
+        return owner;
     }
 
     /*
      * @post owner changed to new Player
      */
     public void setOwner(Player player){
-
+        owner = player;
     }
 
 }  
